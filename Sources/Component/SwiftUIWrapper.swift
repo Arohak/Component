@@ -9,7 +9,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct SwiftUIWrapper<Model, Event>: UIViewRepresentable {
+public struct SwiftUIWrapper<Model, Event>: UIViewRepresentable {
     let view: UIView
     let component: Component<Model, Event>
     var model: Model
@@ -20,11 +20,11 @@ struct SwiftUIWrapper<Model, Event>: UIViewRepresentable {
         self.model = model
     }
     
-    func makeUIView(context: Context) -> some UIView {
+    public func makeUIView(context: Context) -> some UIView {
         return view
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {
+    public func updateUIView(_ uiView: UIViewType, context: Context) {
         component.update(model)
         view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         view.setContentHuggingPriority(.defaultHigh, for: .vertical)

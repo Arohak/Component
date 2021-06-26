@@ -10,15 +10,15 @@
 import UIKit
 #endif
 
-enum Components { }
-enum Views { }
+public enum Components { }
+public enum Views { }
 
-class Component<Model, Event> {
+public class Component<Model, Event> {
     typealias EventHandler = (Event) -> Void
     
-    public let view: UIView
-    public let update: (Model) -> Void
-    public let onEvent: (EventHandler?) -> Void
+    let view: UIView
+    let update: (Model) -> Void
+    let onEvent: (EventHandler?) -> Void
     
     init(
         viewBuilder: @escaping () -> UIView,
